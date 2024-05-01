@@ -39,7 +39,7 @@ function App() {
             <button className="w-full py-2 text-white font-bold bg-emerald-800/50 hover:bg-emerald-700 duration-300"><ShoppingCart size={30} color="#fafafa" className="mx-auto" strokeWidth={2.5} /></button>
           </main>
         </div>
-
+        {/* SECOND CARD */}
         <div className=" w-[23rem] h-[29rem] flex flex-col items-center justify-around border  border-white  bg-white/10 backdrop-blur-sm">
           <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" className="w-full h-full " />
           <main className="w-full">
@@ -57,7 +57,7 @@ function App() {
             <button className="w-full py-2 text-white font-bold bg-emerald-800/50 hover:bg-emerald-700 duration-300"><ShoppingCart size={30} color="#fafafa" className="mx-auto" strokeWidth={2.5} /></button>
           </main>
         </div>
-
+        {/* THIRD CARD */}
         <div className=" w-[23rem] h-[29rem] flex flex-col items-center justify-around border  border-white  bg-white/10 backdrop-blur-sm">
           <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" className="w-full h-full " />
           <main className="w-full">
@@ -75,9 +75,8 @@ function App() {
             <button className="w-full py-2 text-white font-bold bg-emerald-800/50 hover:bg-emerald-700 duration-300"><ShoppingCart size={30} color="#fafafa" className="mx-auto" strokeWidth={2.5} /></button>
           </main>
         </div>
-
-
       </main>
+
 
       {/*//^ FOOTER ========================================================================================================================  */}
       <footer className="bg-white/10 backdrop-blur-sm py-4 text-white font-extrabold bottom-0 left-0 absolute text-lg  flex justify-between items-center px-10 w-screen m-0">
