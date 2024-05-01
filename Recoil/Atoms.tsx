@@ -4,4 +4,4 @@ const { persistAtom } = recoilPersist()
 
 
 
-const AllProducts = atom({ key: 'AllProducts', default: [], effects_UNSTABLE: [persistAtom], })
+export const AllProducts = atom({ key: 'AllProducts', default: [], effects_UNSTABLE: [persistAtom], })
