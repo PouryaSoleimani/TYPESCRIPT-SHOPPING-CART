@@ -10,13 +10,13 @@ const BasketCard = (product: ProductType) => {
 
 
     const deleteHandler = (product: ProductType) => {
-        setBAG([])
-        // const ID = product.id
-        // console.log(ID)
-        // const copy = [...BAG]
-        // console.log(copy)
-        // const filteredBAG = copy.filter(product => { return product.id !== ID })
-        // setBAG(filteredBAG)
+        const ID = product.id
+        console.log(ID)
+        const copy = [...BAG]
+        console.log(copy)
+        const filteredBAG = copy.filter(product => { return product.id !== ID })
+        console.log(filteredBAG)
+        setBAG(filteredBAG)
     }
 
 

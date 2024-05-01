@@ -15,9 +15,12 @@ export default function Cart() {
 
   const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
 
+  const emptyAllFunc = () => { setBAG([]) }
+
+  
 
 
-
+  
   return (
     <div className="app relative top-0 left-0 h-screen overflow-x-hidden ">
       <header className="bg-white/10 backdrop-blur-sm py-4 text-white font-extrabold text-xl sticky top-0 left-0 flex justify-between items-center px-10 w-screen m-0">
@@ -27,7 +30,7 @@ export default function Cart() {
       </header>
       <div className="flex items-center justify-end pr-4 py-2 space-x-4 w-full h-fit mt-3">
         <NavLink to='/'> <button className="text-white p-2 font-bold text-lg hover:bg-sky-700 hover:text-white duration-300 bg-sky-400/30">BACK TO PRODUCTS</button></NavLink>
-        <button className="text-white p-2 font-bold text-lg hover:bg-red-700 hover:text-white duration-300 bg-red-400/30">EMPTY BASKET</button>
+        <button onClick={emptyAllFunc} className="text-white p-2 font-bold text-lg hover:bg-red-700 hover:text-white duration-300 bg-red-400/30">EMPTY BASKET</button>
       </div>
       {/* //^ MAIN ========================================================================================= */}
       <main className="flex  flex-wrap gap-20 items-start justify-center mt-10 h-screen">

@@ -25,7 +25,7 @@ const Card = (product: ProductType) => {
     //^ RETURN
     return (
         <>
-            <Toaster position="top-right" reverseOrder={true} toastOptions={{ duration: 2000 }} />
+            <Toaster position="top-right" reverseOrder={true} toastOptions={{ duration: 1000 }} />
             <div>
                 <div className=" w-[23rem] h-[32rem] flex flex-col items-center justify-around border border-white bg-white/10 ">
                     <img src={product.image} className="w-full h-full " />
