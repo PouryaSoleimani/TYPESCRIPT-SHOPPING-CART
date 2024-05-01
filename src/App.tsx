@@ -1,7 +1,5 @@
 import React from "react";
-import "./App.css";
-import { FaRegStar } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa6";
+import "./../css/App.css";
 import { Github, Hexagon, ShoppingCart } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import Card from "./Components/Card";
@@ -16,16 +14,14 @@ function App() {
         <NavLink to='/cart'> <a className="flex">  <ShoppingCart size={24} strokeWidth={2.5} /><span className="bg-emerald-700 rounded-lg font-semibold h-fit px-1 text-sm">2</span>  </a></NavLink>
       </header>
 
-      {/* //^ MAIN ========================================================================================================================== */}
       <section>
         <p className="text-white border hover:border-white cursor-pointer hover:bg-white/20 border-white/30 bg-white/10 w-fit mx-auto mt-2 text-2xl p-5 font-bold rounded-md ">All Products</p>
       </section>
 
+      {/* //^ MAIN ========================================================================================================================== */}
       <main className="flex items-center justify-center space-x-10 my-6">
-        {/* FIRST CARD */}
         <Card />
       </main>
-
 
       {/*//^ FOOTER ========================================================================================================================  */}
       <footer className="bg-white/10 backdrop-blur-sm py-4 text-white font-extrabold bottom-0 left-0  text-lg mt-10  flex justify-between items-center px-10 w-screen m-0">
