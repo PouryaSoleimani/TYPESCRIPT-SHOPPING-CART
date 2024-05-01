@@ -4,12 +4,22 @@ import { ShoppingCart } from 'lucide-react'
 import { FaRegStar, FaStar } from 'react-icons/fa6'
 import { ProductType } from '../App'
 import toast, { Toaster } from 'react-hot-toast';
+import { ShoppingBag } from '../../Recoil/Atoms';
+import { useRecoilState } from 'recoil';
 
 
 const Card = (product: ProductType) => {
+    const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
+
     const notify = () => toast.success('Product added to Shopping Cart');
 
-    const buyHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => { notify() }
+    const buyHandler = (product: ProductType) => {
+        notify()
+        const copy = [...BAG]
+        copy.push(product)
+        setBAG(copy)
+        console.log(BAG)
+    }
 
 
     //^ RETURN
@@ -31,7 +41,7 @@ const Card = (product: ProductType) => {
                             </div>
                             <p className="bg-black/70 px-2 py-1 tracking-wider font-extrabold text-2xl rounded-lg">{product.price}</p>
                         </div>
-                        <button className="w-full  py-2 text-white font-bold bg-emerald-800/50 hover:bg-emerald-700 duration-300" onClick={buyHandler}><ShoppingCart size={30} color="#fafafa" className="mx-auto" strokeWidth={2.5} /></button>
+                        <button className="w-full  py-2 text-white font-bold bg-emerald-800/50 hover:bg-emerald-700 duration-300" onClick={() => buyHandler(product)}><ShoppingCart size={30} color="#fafafa" className="mx-auto" strokeWidth={2.5} /></button>
                     </main>
                 </div>
             </div>

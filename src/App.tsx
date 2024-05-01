@@ -4,7 +4,7 @@ import { Github, Hexagon, ShoppingCart } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import Card from "./Components/Card";
 import { useRecoilState } from "recoil";
-import { AllProducts } from './../Recoil/Atoms';
+import { AllProducts, ShoppingBag } from './../Recoil/Atoms';
 import axios from "axios";
 
 export type ProductType = {
@@ -20,14 +20,11 @@ export type ProductType = {
 
 function App() {
   const [allproducts, setAllproducts] = useRecoilState<ProductType[]>(AllProducts)
+  const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
 
-  const getData = () => {
-    axios.get('https://fakestoreapi.com/products').then(response => setAllproducts(response.data))
-    console.log(allproducts)
-  }
+  const getData = () => { axios.get('https://fakestoreapi.com/products').then(response => setAllproducts(response.data)) }
 
   useEffect(() => { getData() }, [])
-
 
 
   // ^RETURN
@@ -36,7 +33,7 @@ function App() {
       {/* HEADER ======================================================================================================================== */}
       <header className="bg-white/10 backdrop-blur-sm py-4 text-white font-extrabold text-xl sticky top-0 left-0 flex justify-between items-center px-10 w-screen m-0">
         <a className="logo flex items-center justify-center space-x-6 hover:underline cursor-pointer"> <Hexagon size={20} strokeWidth={2.5} className="mr-2" />TYPESCRIPT SHOPPING CART</a>
-        <NavLink to='/cart' className="flex"><ShoppingCart size={24} strokeWidth={2.5} /><span className="bg-emerald-700 rounded-lg font-semibold h-fit px-1 text-sm">2</span> </NavLink>
+        <NavLink to='/cart' className="flex"><ShoppingCart size={24} strokeWidth={2.5} /><span className="bg-emerald-700 rounded-lg font-semibold h-fit px-1 text-sm">{BAG.length}</span> </NavLink>
       </header>
 
       <section>
