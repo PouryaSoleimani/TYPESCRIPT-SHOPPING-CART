@@ -17,13 +17,13 @@ export default function Cart() {
 
   const emptyAllFunc = () => { setBAG([]) }
 
-  
 
 
-  
+
+
   return (
-    <div className="app relative top-0 left-0 h-screen overflow-x-hidden ">
-      <header className="bg-white/10 backdrop-blur-sm py-4 text-white font-extrabold text-xl sticky top-0 left-0 flex justify-between items-center px-10 w-screen m-0">
+    <div className="app h-screen overflow-x-hidden">
+      <header className="bg-white/10 backdrop-blur-sm py-4 z-50 text-white font-extrabold text-xl sticky top-0 left-0 flex justify-between items-center px-10 w-screen m-0">
         <a className="logo flex items-center justify-center space-x-6 hover:underline cursor-pointer"> <Hexagon size={20} strokeWidth={2.5} className="mr-2" />TYPESCRIPT SHOPPING CART</a>
         <a className="flex">  <ShoppingCart size={24} strokeWidth={2.5} /><span className="bg-emerald-700 rounded-lg font-semibold h-fit px-1 text-sm">{BAG.length}</span>  </a>
         {/* //^ HEADER ========================================================================================= */}
@@ -33,7 +33,7 @@ export default function Cart() {
         <button onClick={emptyAllFunc} className="text-white p-2 font-bold text-lg hover:bg-red-700 hover:text-white duration-300 bg-red-400/30">EMPTY BASKET</button>
       </div>
       {/* //^ MAIN ========================================================================================= */}
-      <main className="flex  flex-wrap gap-20 items-start justify-center mt-10 h-screen">
+      <main className="flex flex-wrap gap-20 items-start justify-center mt-10  h-fit mb-32 z-20 ">
         {BAG.length ? (
           <>
             {BAG.map((product: ProductType) => (<BasketCard key={product.id}  {...product} />))}
@@ -46,7 +46,7 @@ export default function Cart() {
         )}
       </main>
       {/* //^ FOOTER ========================================================================================= */}
-      <footer className="bg-white/10 backdrop-blur-sm py-4 text-white font-extrabold sticky top-0 left-0 text-lg mt-10 flex justify-start items-center px-10 w-full ">
+      <footer className="bg-white/10 backdrop-blur-sm py-4 z-0 text-white font-extrabold text-lg flex justify-start items-center px-10 w-full absolute bottom-0 left-0  ">
         <a target={"_blank"} href="https://github.com/PouryaSoleimani" className="flex items-center text-lg">
           <Github size={22} color="#fafafa" strokeWidth={2.5} className="mr-2" /> https://github.com/PouryaSoleimani
         </a>

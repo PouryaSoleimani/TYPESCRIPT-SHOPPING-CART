@@ -41,7 +41,7 @@ function App() {
       </section>
 
       {/* MAIN ========================================================================================================================== */}
-      <main className="flex  flex-wrap gap-20 items-center justify-center mt-10 h-inherit">
+      <main className="flex px-4 flex-wrap gap-20 items-center justify-center mt-10 h-inherit">
         {allproducts.map((product: ProductType) => (<Card key={product.id} {...product} />))}
       </main>
 
