@@ -21,11 +21,11 @@ const BasketCard = (product: ProductType) => {
 
 
 
-
+    //^ RETURN
     return (
 
         <>
-            <Toaster position="top-right" reverseOrder={true} />
+            <Toaster position="bottom-right" reverseOrder={true} />
             <div>
                 <div className=" w-[23rem] h-[32rem] flex flex-col items-center justify-around border   border-white  bg-white/10 backdrop-blur-sm">
                     <img src={product.image} className="w-full h-full " />

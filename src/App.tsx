@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./../css/App.css";
 import { Github, Hexagon, ShoppingCart } from "lucide-react";
 import { NavLink } from "react-router-dom";
