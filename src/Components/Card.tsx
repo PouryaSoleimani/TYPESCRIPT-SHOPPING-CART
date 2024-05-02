@@ -39,11 +39,8 @@ const Card = (product: ProductType) => {
                         <p className="text-xl text-start font-sans text-white tracking-tighter bg-white/20 w-inherit font-bold  px-4 py-1">{product.title.toUpperCase().slice(0, 25)}</p>
                         <div className="text-white flex justify-between items-center bg-black px-4 font-bold text-xl py-2">
                             <div className="flex">
-                                <FaStar className="text-yellow-400" />
-                                <FaStar className="text-yellow-400" />
-                                <FaStar className="text-yellow-400" />
-                                <FaStar className="text-yellow-400" />
-                                <FaRegStar className="text-yellow-400" />
+                                {Array(Math.ceil(product.rating.rate)).fill(0).map(star => (<FaStar className="text-yellow-400" />))}
+                                {Array(5 - Math.ceil(product.rating.rate)).fill(0).map(star => (<FaRegStar className="text-yellow-400" />))}
                             </div>
                             <p id="price">{product.price} $</p>
                         </div>

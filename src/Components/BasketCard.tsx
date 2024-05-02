@@ -1,5 +1,5 @@
 import { SquareX } from 'lucide-react'
-import { FaRegStar } from 'react-icons/fa6'
+import { FaRegStar, FaStar } from 'react-icons/fa6'
 import { ProductType } from '../App'
 import { ShoppingBag } from '../../Recoil/Atoms'
 import { useRecoilState } from 'recoil'
@@ -33,11 +33,8 @@ const BasketCard = (product: ProductType) => {
                         <p className="text-2xl text-center font-sans text-white tracking-tighter bg-white/20 w-inherit font-bold  px-4 py-1">{product.title.toUpperCase().slice(0, 20)}</p>
                         <div className="text-white flex justify-between items-center px-4 font-bold text-xl py-2">
                             <div className="flex">
-                                <FaRegStar style={{ color: "orange" }} />
-                                <FaRegStar style={{ color: "orange" }} />
-                                <FaRegStar style={{ color: "orange" }} />
-                                <FaRegStar style={{ color: "orange" }} />
-                                <FaRegStar style={{ color: "orange" }} />
+                                {Array(Math.ceil(product.rating.rate)).fill(0).map(star => (<FaStar className="text-yellow-400" />))}
+                                {Array(5 - Math.ceil(product.rating.rate)).fill(0).map(star => (<FaRegStar className="text-yellow-400" />))}
                             </div>
                             <p className="bg-black/70 px-2 py-1 tracking-wider font-extrabold text-2xl rounded-lg">{product.price}</p>
                         </div>
