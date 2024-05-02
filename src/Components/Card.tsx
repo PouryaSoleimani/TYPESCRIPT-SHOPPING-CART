@@ -4,21 +4,27 @@ import { ShoppingCart } from 'lucide-react'
 import { FaRegStar, FaStar } from 'react-icons/fa6'
 import { ProductType } from '../App'
 import toast, { Toaster } from 'react-hot-toast';
-import { ShoppingBag } from '../../Recoil/Atoms';
+import { AllProducts, ShoppingBag } from '../../Recoil/Atoms';
 import { useRecoilState } from 'recoil';
 
 
 const Card = (product: ProductType) => {
     const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
+    const [allproducts, setAllproducts] = useRecoilState<ProductType[]>(AllProducts)
 
     const notify = () => toast.success('Product added to Shopping Cart');
 
     const buyHandler = (product: ProductType) => {
         notify()
-        const copy = [...BAG]
-        copy.push(product)
-        setBAG(copy)
-        console.log(BAG)
+        setBAG(prevProducts => {
+            const mainProductInBag = BAG.find(item => item.id === product.id) 
+            if (mainProductInBag) {
+                return prevProducts.map(item => { if (item.id === product.id) { return { ...item, count: item.count + 1 } } else { return item } });
+            } else {
+                const mainProductInShop = allproducts.find(item => item.id === product.id) as ProductType
+                return [...prevProducts, { ...mainProductInShop, count: 1 }]
+            }
+        })
     }
 
 
