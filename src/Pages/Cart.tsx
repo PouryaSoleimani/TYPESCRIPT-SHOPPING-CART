@@ -1,6 +1,4 @@
 import { Github, Hexagon, ShoppingCart, SquareX } from "lucide-react";
-import React, { useContext } from "react";
-import { FaRegStar } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import BasketCard from "../Components/BasketCard";
 import { useRecoilState } from "recoil";
@@ -12,14 +10,8 @@ import { AllProducts, ShoppingBag } from "../../Recoil/Atoms";
 export default function Cart() {
 
   const [allproducts, setAllproducts] = useRecoilState<ProductType[]>(AllProducts)
-
   const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
-
   const emptyAllFunc = () => { setBAG([]) }
-
-
-
-
 
   return (
     <div className="app h-screen overflow-x-hidden">

@@ -22,9 +22,7 @@ export type ProductType = {
 function App() {
   const [allproducts, setAllproducts] = useRecoilState<ProductType[]>(AllProducts)
   const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
-
   const getData = () => { axios.get('https://fakestoreapi.com/products').then(response => setAllproducts(response.data)) }
-
   useEffect(() => { getData() }, [])
 
 
