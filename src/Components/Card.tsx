@@ -14,7 +14,6 @@ const Card = (product: ProductType) => {
     const notify = () => toast.success('Product added to Shopping Cart');
 
     const buyHandler = (product: ProductType) => {
-
         notify()
         setBAG(prevProducts => {
             const mainProductsInBag = BAG.find(item => item.id === product.id)
