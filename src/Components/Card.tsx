@@ -10,7 +10,6 @@ import '../../index.css'
 const Card = (product: ProductType) => {
     const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
     const [allproducts, setAllproducts] = useRecoilState<ProductType[]>(AllProducts)
-
     const notify = () => toast.success('Product added to Shopping Cart');
 
     const buyHandler = (product: ProductType) => {
@@ -18,16 +17,22 @@ const Card = (product: ProductType) => {
         setBAG(prevProducts => {
             const mainProductsInBag = BAG.find(item => item.id === product.id)
             if (mainProductsInBag) {
-                return prevProducts.map(item => { if (item.id === product.id) { return { ...item, count: item.count + 1 } } else { return item } })
+                return prevProducts.map(item => {
+                    if (item.id === product.id) {
+                        return { ...item, count: item.count + 1 }
+                    } else {
+                        return item
+                    }
+                })
             } else {
                 const mainProductInShop = allproducts.find(item => item.id === product.id) as ProductType
                 return [...prevProducts, { ...mainProductInShop, count: 1 }]
             }
         })
+
     }
 
-
-    // RETURN
+    //^ RETURN
     return (
         <>
             <Toaster position="bottom-right" reverseOrder={true} toastOptions={{ duration: 1000 }} />
