@@ -17,6 +17,7 @@ const Card = (product: ProductType) => {
         setBAG(prevProducts => {
             //CHECKING IF THERE IS SUCH PRODUCT IN CART OR NOT
             const mainProductsInBag = BAG.find(item => item.id === product.id)
+
             // ADDING THE PRODUCT TO THE BASKET OR JUST INCREASING THE COUNT , USING AN IF-ELSE
             if (mainProductsInBag) {
                 return prevProducts.map(item => {
@@ -60,3 +61,4 @@ const Card = (product: ProductType) => {
 }
 
 export default Card
+
