@@ -17,7 +17,7 @@ const Card = (product: ProductType) => {
         setBAG(prevProducts => {
             //CHECKING IF THERE IS SUCH PRODUCT IN CART OR NOT
             const mainProductsInBag = BAG.find(item => item.id === product.id)
-
+            // ADDING THE PRODUCT TO THE BASKET OR JUST INCREASING THE COUNT , USING AN IF-ELSE
             if (mainProductsInBag) {
                 return prevProducts.map(item => {
                     if (item.id === product.id) {
@@ -25,7 +25,7 @@ const Card = (product: ProductType) => {
                     } else {
                         return item
                     }
-                })
+                }) // HERE IN ELSE PART WE JUST ADD PRODUCT IF THE BASKET IS ALREADY EMPTY
             } else {
                 const mainProductInShop = allproducts.find(item => item.id === product.id) as ProductType
                 return [...prevProducts, { ...mainProductInShop, count: 1 }]
