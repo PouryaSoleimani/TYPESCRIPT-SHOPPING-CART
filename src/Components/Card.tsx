@@ -7,6 +7,7 @@ import { AllProducts, ShoppingBag } from '../../Recoil/Atoms';
 import { useRecoilState } from 'recoil';
 import '../../index.css'
 
+//COMPONENT
 const Card = (product: ProductType) => {
     const [BAG, setBAG] = useRecoilState<ProductType[]>(ShoppingBag)
     const [allproducts, setAllproducts] = useRecoilState<ProductType[]>(AllProducts)
@@ -15,7 +16,7 @@ const Card = (product: ProductType) => {
     const buyHandler = (product: ProductType) => {
         notify()
         setBAG(prevProducts => {
-            //CHECKING IF THERE IS SUCH PRODUCT IN CART OR NOT
+
             const mainProductsInBag = BAG.find(item => item.id === product.id)
 
             // ADDING THE PRODUCT TO THE BASKET OR JUST INCREASING THE COUNT , USING AN IF-ELSE
@@ -26,7 +27,7 @@ const Card = (product: ProductType) => {
                     } else {
                         return item
                     }
-                }) // HERE IN ELSE PART WE JUST ADD PRODUCT IF THE BASKET IS ALREADY EMPTY
+                }) // HERE IN {ELSE} PART WE JUST ADD PRODUCT IF THE BASKET IS ALREADY EMPTY
             } else {
                 const mainProductInShop = allproducts.find(item => item.id === product.id) as ProductType
                 return [...prevProducts, { ...mainProductInShop, count: 1 }]
@@ -35,7 +36,7 @@ const Card = (product: ProductType) => {
 
     }
 
-    //^ RETURN
+    //RETURN
     return (
         <>
             <Toaster position="bottom-right" reverseOrder={true} toastOptions={{ duration: 1000 }} />
