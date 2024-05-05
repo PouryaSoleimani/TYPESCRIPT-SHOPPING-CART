@@ -15,7 +15,9 @@ const Card = (product: ProductType) => {
     const buyHandler = (product: ProductType) => {
         notify()
         setBAG(prevProducts => {
+            //CHECKING IF THERE IS SUCH PRODUCT IN CART OR NOT
             const mainProductsInBag = BAG.find(item => item.id === product.id)
+
             if (mainProductsInBag) {
                 return prevProducts.map(item => {
                     if (item.id === product.id) {
